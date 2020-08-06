@@ -4,7 +4,7 @@ name: Divinerites cookie consent
 license: GPLv3
 licenselink: https://www.gnu.org/licenses/gpl-3.0.html
 description: Small gohugo.io component for managing Cookie consent for RGPD
-homepage:
+homepage: https://github.com/divinerites/divinerites-cookies
 version: 1.0.0
 tags:
   - RGPD
