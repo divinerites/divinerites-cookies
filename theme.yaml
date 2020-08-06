@@ -5,7 +5,7 @@ license: GPLv3
 licenselink: https://www.gnu.org/licenses/gpl-3.0.html
 description: Small gohugo.io component for managing Cookie consent for RGPD
 homepage:
-version: 1.0.O
+version: 1.0.0
 tags:
   - RGPD
   - cookies
