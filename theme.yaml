@@ -1,0 +1,19 @@
+# theme.yaml configuration file
+
+name: Divinerites cookie consent
+license: GPLv3
+licenselink: https://www.gnu.org/licenses/gpl-3.0.html
+description: Small gohugo.io component for managing Cookie consent for RGPD
+homepage:
+version: 1.0.O
+tags:
+  - RGPD
+  - cookies
+features:
+  - easy manage Cookie consent
+  - 2 options = osano.com / local script
+  - Osano.com = local or on-line
+  - French/English/Dutch/German
+min_version: 0.50.0
+author:
+  name: Didier Divinerites

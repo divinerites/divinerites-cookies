@@ -1,0 +1,13 @@
+# Gestion lazyload
+[params.global.cookies]
+   # Choose type of cookie management
+   #   true  = cookieconsent.osano
+   #   false = cookiechoice simple
+   ck_enable = true
+   # ck_cdn = true for online osano script
+   ck_cdn = true
+   # Layout de cookieconsent.osano
+   ck_popup_bg = "#000"
+   ck_button_bg = "transparent"
+   ck_button_text = "#f1d600"
+   ck_button_border = "#f1d600"

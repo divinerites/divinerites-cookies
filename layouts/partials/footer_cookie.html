@@ -1,0 +1,7 @@
+{{ if site.Params.global.cookies.ck_enable }}
+   <!-- On utilise cookieconsent.osano.com -->
+   {{ partialCached "cookie-consent.html" . }}
+{{ else }}
+   <!-- On utilise cookie-simple -->
+   {{ partialCached "cookie-simple.html" . }}
+{{ end }}
