@@ -1,7 +1,9 @@
-{{ if site.Params.global.cookies.ck_enable }}
-   <!-- On utilise cookieconsent.osano.com -->
-   {{ partialCached "cookie-consent.html" . }}
-{{ else }}
-   <!-- On utilise cookie-simple -->
-   {{ partialCached "cookie-simple.html" . }}
-{{ end }}
+{{- if site.Params.global.cookies.enable -}}
+   {{- if site.Params.global.cookies.ck_enable }}
+      <!-- On utilise cookieconsent.osano.com -->
+      {{ partialCached "cookie-consent.html" . }}
+   {{- else }}
+      <!-- On utilise cookie-simple -->
+      {{ partialCached "cookie-simple.html" . }}
+   {{- end }}
+{{- end }}

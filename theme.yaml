@@ -5,7 +5,7 @@ license: GPLv3
 licenselink: https://www.gnu.org/licenses/gpl-3.0.html
 description: Small gohugo.io component for managing Cookie consent for RGPD
 homepage: https://github.com/divinerites/divinerites-cookies
-version: 1.0.2
+version: 1.1.O
 tags:
   - RGPD
   - cookies
@@ -14,6 +14,7 @@ features:
   - 2 options = osano.com / local script
   - Osano.com = local or on-line
   - French/English/Dutch/German
+  - Add option for globally disble cookies (v1.1.0)
 min_version: 0.50.0
 author:
   name: Didier Divinerites

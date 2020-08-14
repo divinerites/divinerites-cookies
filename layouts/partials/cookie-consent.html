@@ -1,28 +1,30 @@
 <!-- cookieconsent.osano.com -->
-{{ if site.Params.global.cookies.ck_cdn }}
-  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
-{{ else }}
-  {{ $js := resources.Get "js/cookieconsent.min.js" | minify | fingerprint "sha384" }}
-  <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" data-cfasync="false"></script>
-{{ end }}
+{{- if site.Params.global.cookies.enable -}}
+  {{- if site.Params.global.cookies.ck_cdn }}
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+  {{- else }}
+    {{ $js := resources.Get "js/cookieconsent.min.js" | minify | fingerprint "sha384" }}
+    <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" data-cfasync="false"></script>
+  {{- end }}
 
-<script>
-window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "{{ site.Params.global.cookies.ck_popup_bg }}"
+  <script>
+  window.cookieconsent.initialise({
+    "palette": {
+      "popup": {
+        "background": "{{ site.Params.global.cookies.ck_popup_bg }}"
+      },
+      "button": {
+        "background": "{{ site.Params.global.cookies.ck_button_bg }}",
+        "text": "{{ site.Params.global.cookies.ck_button_text }}",
+        "border": "{{ site.Params.global.cookies.ck_button_border }}"
+      }
     },
-    "button": {
-      "background": "{{ site.Params.global.cookies.ck_button_bg }}",
-      "text": "{{ site.Params.global.cookies.ck_button_text }}",
-      "border": "{{ site.Params.global.cookies.ck_button_border }}"
+    "content": {
+      "message": '{{ i18n "cookieinfo" }}',
+      "dismiss": '{{ i18n "cookieaccept" }}',
+      "link": '{{ i18n "cookiemore" }}',
+      "href": '{{ site.Home.RelPermalink | relLangURL }}{{ site.Params.global.cookies.cookielegalurl }}'
     }
-  },
-  "content": {
-    "message": '{{ i18n "cookieinfo" }}',
-    "dismiss": '{{ i18n "cookieaccept" }}',
-    "link": '{{ i18n "cookiemore" }}',
-    "href": '{{ site.Home.RelPermalink | relLangURL }}{{ site.Params.global.cookies.cookielegalurl }}'
-  }
-});
-</script>
+  });
+  </script>
+{{- end }}

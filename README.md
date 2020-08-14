@@ -14,6 +14,7 @@ File : `config.toml`
 
 ```toml
 [params.global.cookies]
+   enable = true
    # Layout de cookieconsent
    ck_enable = true
    ck_cdn = true

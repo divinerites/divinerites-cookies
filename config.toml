@@ -1,5 +1,6 @@
 # Gestion lazyload
 [params.global.cookies]
+   enable = true
    # Choose type of cookie management
    #   true  = cookieconsent.osano
    #   false = cookiechoice simple
