@@ -1,0 +1,5 @@
+<!-- Version pre-v1.1.0 -->
+{{- if not (isset .Site.Params.global.cookies "enable") }}
+   {{- $_text := "Upgrade your config.toml; You need [params.global.cookie.enable] : %s" }}
+   {{- errorf $_text "true" }}
+{{- end }}

@@ -1,3 +1,6 @@
+<!-- Check for config.toml in sync with the used variable in this version -->
+{{- partial "cookie_check.html" . }}
+
 {{- if site.Params.global.cookies.enable -}}
    {{- if site.Params.global.cookies.ck_enable -}}
       <!-- CSS de cookieconsent.osano.com -->
