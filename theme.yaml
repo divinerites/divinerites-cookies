@@ -16,6 +16,7 @@ features:
   - French/English/Dutch/German
   - Add option for globally disble cookies (v1.1.0)
   - Check for Params.global.cookies.enable (v1.1.1)
+  - Add test for production+hugo pipe (v1.2.0)
 min_version: 0.50.0
 author:
   name: Didier Divinerites

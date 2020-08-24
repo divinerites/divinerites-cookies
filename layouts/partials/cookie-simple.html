@@ -1,5 +1,7 @@
+{{- $isProd := hugo.IsProduction -}}
 {{- if site.Params.global.cookies.enable -}}
-   {{ $js := resources.Get "js/cookiechoices.js" | minify | fingerprint "sha384" }}
-   <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
+   {{ $js := resources.Get "js/cookiechoices.js" }}
+   {{- if $isProd }}{{ $js = $js | minify | fingerprint "sha384" }}{{ end -}}
+   <script src="{{ $js.RelPermalink }}" {{ if $isProd }}integrity="{{ $js.Data.Integrity }}"{{ end }}></script>
    <script>document.addEventListener('DOMContentLoaded', function (event) { cookieChoices.showCookieConsentBar('{{ i18n "cookieinfo" }}', '{{ i18n "cookieaccept" }}', '{{ i18n "cookiemore" }}', '{{ site.Home.RelPermalink | relLangURL }}{{ site.Params.global.cookies.cookielegalurl }}'); });</script>
 {{- end }}

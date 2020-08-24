@@ -1,12 +1,17 @@
 # Gestion lazyload
 [params.global.cookies]
+   # Enable Cookies RGPD or not
    enable = true
+   # Url for legal disclaimer (cookiechoice simple)
+   cookielegalurl = "legal/"
    # Choose type of cookie management
-   #   true  = cookieconsent.osano
-   #   false = cookiechoice simple
    ck_enable = true
-   # ck_cdn = true for online osano script
+      # true  = cookieconsent.osano
+      # false = cookiechoice simple
    ck_cdn = true
+      # true = Osano script Internet
+      # false = Osano script local
+
    # Layout de cookieconsent.osano
    ck_popup_bg = "#000"
    ck_button_bg = "transparent"

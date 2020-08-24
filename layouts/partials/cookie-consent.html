@@ -1,10 +1,12 @@
+{{- $isProd := hugo.IsProduction -}}
 <!-- cookieconsent.osano.com -->
 {{- if site.Params.global.cookies.enable -}}
   {{- if site.Params.global.cookies.ck_cdn }}
     <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
   {{- else }}
-    {{ $js := resources.Get "js/cookieconsent.min.js" | minify | fingerprint "sha384" }}
-    <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" data-cfasync="false"></script>
+    {{ $js := resources.Get "js/cookieconsent.min.js" }}
+    {{- if $isProd }}{{ $js = $js | minify | fingerprint "sha384" }}{{ end -}}
+    <script src="{{ $js.RelPermalink }}" data-cfasync="false" {{ if $isProd }}integrity="{{ $js.Data.Integrity }}"{{ end }}></script>
   {{- end }}
 
   <script>

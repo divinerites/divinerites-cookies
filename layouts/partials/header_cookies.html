@@ -1,6 +1,7 @@
 <!-- Check for config.toml in sync with the used variable in this version -->
 {{- partial "cookie_check.html" . }}
 
+{{- $isProd := hugo.IsProduction -}}
 {{- if site.Params.global.cookies.enable -}}
    {{- if site.Params.global.cookies.ck_enable -}}
       <!-- CSS de cookieconsent.osano.com -->
@@ -9,8 +10,9 @@
          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
       {{- else -}}
          <!-- Version locale -->
-         {{- $style := resources.Get "css/cookieconsent.min.css" | minify | fingerprint }}
-         <link rel="stylesheet" type="text/css" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+         {{- $style := resources.Get "css/cookieconsent.min.css" }}
+         {{- if $isProd }}{{ $style = $style | minify | fingerprint }}{{ end -}}
+         <link rel="stylesheet" type="text/css" href="{{ $style.RelPermalink }}" {{ if $isProd }}integrity="{{ $style.Data.Integrity }}"{{ end }}>
       {{- end -}}
    {{- else -}}
       <!-- On utilise cookie-simple -->
